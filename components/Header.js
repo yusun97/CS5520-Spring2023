@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function Header(appName) {
+export default function Header({appName}) {
     console.log(appName);
   return (
     <View>
