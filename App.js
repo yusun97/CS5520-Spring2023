@@ -21,19 +21,25 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Header appName={name} />
-      <Input
-        modelIsVisible={modalVisible}
-        onConfirm={onTextEntered}
-        cancelPress={onCancel}
-      />
-      <Button
-        title="Add a Task"
-        onPress={() => {
-          setModalVisible(true);
-        }}
-      />
-      <Text>{enteredText}</Text>
+      <View style={styles.topperContainer}>
+        <Header appName={name} />
+        <Input
+          modelIsVisible={modalVisible}
+          onConfirm={onTextEntered}
+          cancelPress={onCancel}
+        />
+        <Button
+          title="Add a Task"
+          onPress={() => {
+            setModalVisible(true);
+          }}
+        />
+      </View>
+      <View style={styles.bottomContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>You text will show here{enteredText}</Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -42,16 +48,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center", 
+    alignItems: "stretch",
+    justifyContent: "center",
   },
   topperContainer: {
     flex: 1,
     justifyContent: "center",
+    alignItems: "center",
   },
   bottomContainer: {
     flex: 4,
-    backgroundColor: "red",
-    alignSelf: "stretch",
+    backgroundColor: "#dcd",
+    // alignSelf: "stretch",
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 18,
+    color: "purple",
+    // backgroundColor: "grey",
+    // borderRadius: 10,
+    padding: 5,
+  },
+  textContainer: {
+    backgroundColor: "grey",
+    borderRadius: 5,
   },
 });
